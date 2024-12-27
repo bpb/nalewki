@@ -2,7 +2,7 @@
 
 ## Overview
 
-`pour_nalewka.sh` is a Bash script that accepts a programming language as an argument and selectively executes a corresponding sub-script that creates a template to start a python project. The term **"nalewka"** is a playful nod to the Polish word for homemade liqueur, suggesting "pouring" a specific script.
+`pour_nalewka.sh` is a Bash script that accepts a programming language as an argument and selectively executes a corresponding sub-script that creates a boilerplate template for a project in the language chosen. The term **"nalewka"** is a playful nod to the Polish word for homemade liqueur, suggesting "pouring" a specific script.
 
 ## Features
 
