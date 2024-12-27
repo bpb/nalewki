@@ -26,7 +26,7 @@
    ./pour_nalewka.sh python
    ```
 
-   Executes `python_script.sh`.
+   Executes `python-project/python_init.sh`.
 
 2. **Verbose Mode (Python)**  
 
