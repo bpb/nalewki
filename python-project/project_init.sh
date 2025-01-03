@@ -5,6 +5,13 @@ if [[ "$1" == "-v" ]]; then
 	set -x
 fi
 
+if command -v uv &>/dev/null; then
+	echo "uv is installed"
+else
+	echo "uv is missing"
+	brew install uv
+fi
+
 # Function to generate a random noun
 generate_random_noun() {
 	local nouns=("phoenix" "nebula" "falcon" "oasis" "horizon" "ember" "echo" "harbor" "summit" "voyage")
@@ -39,7 +46,9 @@ author_email=${author_email:-$default_author_email}
 read -p "Enter project description (default: A new project): " project_description
 project_description=${project_description:-A new project}
 # Get the current directory (template directory)
-template_dir=$(pwd)
+template_dir=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
+
+echo "current_directory" $template_dir
 
 if [ -d "$code_directory" ]; then
 	echo "Directory '$code_directory' already exists."
@@ -80,6 +89,7 @@ find "$new_project_dir" -type f -exec sed -i '' \
 # Step 4: Test if pytest passes (optional)
 echo "Testing Python Environment Integrity"
 cd "$new_project_dir"
+
 python3 -m venv .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
@@ -105,3 +115,4 @@ else
 fi
 
 echo "Project setup complete."
+echo "cd " $new_project_dir
